@@ -84,11 +84,19 @@ void parse_file ( char * filename,
     double xvals[3];
     double yvals[3];
     double zvals[4];
+    double r;
     struct matrix *tmp;
     double theta;
     char axis;
+
+    if ( strncmp(line, "circle", strlen(line)) == 0 ) {
+      fgets(line, sizeof(line), f);
+      sscanf(line, "%lf %lf %lf %lf",
+	     xvals, yvals, zvals, &r);
+      add_circle(edges, xvals[0], yvals[0], zvals[0], r, 0.01);
+    }
     
-    if ( strncmp(line, "line", strlen(line)) == 0 ) {
+    else if ( strncmp(line, "line", strlen(line)) == 0 ) {
       fgets(line, sizeof(line), f);
       //printf("LINE\t%s", line);
 
