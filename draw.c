@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #include "ml6.h"
 #include "display.h"
@@ -67,9 +68,7 @@ void add_curve( struct matrix *points,
   struct matrix * y_coefs = generate_curve_coefs(y0, y1, y2, y3, type);
 
   double t = 0.0;
-  double x0, x1;
-  double y0, y1;
-
+  
   while ( t <= (1.0+step) ) {
     x0 = x_coefs->m[0][0] * pow(t, 3) + x_coefs->m[1][0] * pow(t, 2) + x_coefs->m[2][0] * t + x_coefs->m[3][0];
     y0 = y_coefs->m[0][0] * pow(t, 3) + y_coefs->m[1][0] * pow(t, 2) + y_coefs->m[2][0] * t + y_coefs->m[3][0];
