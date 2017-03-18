@@ -20,7 +20,7 @@ struct matrix * make_bezier() {
 
   bezier->m[1][0] = 3;
   bezier->m[1][1] = -6;
-  bezier->m[1][2] = -3;
+  bezier->m[1][2] = 3;
   bezier->m[1][3] = 0;
 
   bezier->m[2][0] = -3;
